@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import DroneCamera from "./components/DroneCamera";
+import DirectionControl from "./components/DirectionControl";
+import ThrottleControl from "./components/ThrottleControl";
+import TakeoffBtn from "./components/TakeoffBtn";
+import LandingBtn from "./components/LandingBtn";
+import ScreenshotBtn from "./components/ScreenshotBtn";
 
-function App() {
+class App extends Component {
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Web for Drone Control
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Fragment>
+      <DroneCamera/>
+      <DirectionControl/>
+      <ThrottleControl/>
+      <TakeoffBtn/>
+      <LandingBtn/>
+      <ScreenshotBtn/>
+    </Fragment>
+  )
+  } 
+};
 
 export default App;
