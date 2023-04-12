@@ -1,11 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
 
+const Btn = ({ value, onClick }) => {
+  return <button onClick={onClick}>{value}</button>;
+};
 
-const Btn = (props) => {
-    return (
-        <button className="btn">{props.value}</button>
-    )
-}
-
-export default Btn
+export default Btn;
