@@ -22,12 +22,12 @@ const DirectionControl = () => {
   return (
     <Fragment>
       <Container>
-        <DirectionBtn className="upBtn" src={process.env.PUBLIC_URL + '/uDirection.png'} alt="uDirection" />
+        <DirectionBtn className="upBtn" src={process.env.PUBLIC_URL + '/fDirection.png'} alt="fDirection" />
         <div style={{ display: "flex" }}>
           <DirectionBtn src={process.env.PUBLIC_URL + '/lDirection.png'} alt="lDirection" />
           <DirectionBtn src={process.env.PUBLIC_URL + '/rDirection.png'} alt="rDirection" />
         </div>
-        <DirectionBtn className="downBtn" src={process.env.PUBLIC_URL + '/dDirection.png'} alt="dDirection" />
+        <DirectionBtn className="downBtn" src={process.env.PUBLIC_URL + '/bdirection.png'} alt="bDirection" />
       </Container>
     </Fragment>
   );

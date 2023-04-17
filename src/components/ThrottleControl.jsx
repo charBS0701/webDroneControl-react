@@ -18,12 +18,12 @@ const ThrottleControl = () => {
     return (
      <Fragment>
         <Container>
-            <DirectionBtn src={process.env.PUBLIC_URL + '/uDirection.png'} alt="uDirection" />
+            <DirectionBtn src={process.env.PUBLIC_URL + '/fDirection.png'} alt="fDirection" />
             <div style={{display:"flex"}}>
                 <DirectionBtn src={process.env.PUBLIC_URL + '/lDirection.png'} alt="lDirection" />
                 <DirectionBtn src={process.env.PUBLIC_URL + '/rDirection.png'} alt="rDirection" />
             </div>
-            <img src={process.env.PUBLIC_URL + '/dDirection.png'} alt="dDirection" />
+            <img src={process.env.PUBLIC_URL + '/bDirection.png'} alt="bDirection" />
         </Container>
     </Fragment>   
     )
