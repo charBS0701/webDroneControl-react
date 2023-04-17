@@ -1,11 +1,9 @@
 import React from "react";
 import Btn from "./Btn";
-import io from "socket.io-client";
-
-const socket = io("http://localhost:3001"); // WebSocket 서버 주소
+import socket from "../socket";
 
 const handleTakeoffClick = () => {
-  console.log("Takeoff");
+  console.log("Takeoff 클릭");
   socket.emit("takeoff"); // takeoff 이벤트 메시지 전송
 };
 

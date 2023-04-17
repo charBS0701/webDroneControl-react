@@ -6,27 +6,22 @@ import Destination from "./components/Destination";
 import TakeoffBtn from "./components/TakeoffBtn";
 import LandingBtn from "./components/LandingBtn";
 import ScreenshotBtn from "./components/ScreenshotBtn";
+import "./style.css";
 
 class App extends Component {
   render() {
     return (
-      <div style={{ display: "flex", flexDirection: "row",justifyContent:"space-evenly", border:"solid" }}>
-        <div
-          className="left"
-          style={{ display: "flex", flexDirection: "column", width:"100%", border:"solid red", justifyContent:"center", alignItems:"center" }}
-        >
+      <div id="container">
+        <div id="left">
           <DroneCamera style={{border:"solid yellow"}}/>
           <Destination /> 
         </div>
-        <div
-          className="right"
-          style={{ display: "flex", flexDirection: "column",width:"100%", border:"solid blue" }}
-        >
-          <div style={{ display: "flex", flexDirection: "row", justifyContent:"space-between" }}>
+        <div id="right">
+          <div id="controllers">
             <DirectionControl />
             <ThrottleControl />
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div id="buttons">
             <TakeoffBtn />
             <LandingBtn />
             <ScreenshotBtn />

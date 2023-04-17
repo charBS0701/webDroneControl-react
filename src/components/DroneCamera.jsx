@@ -1,8 +1,4 @@
-import { Fragment } from "react";
-
 const DroneCamera = () => {
-
-
 
   return (
     <div style={{ width:"90%", border:"solid", display:"flex", flexDirection:"column", justifyContent:"center" }}>
