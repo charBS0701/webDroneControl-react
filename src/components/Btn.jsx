@@ -1,7 +1,11 @@
 import React from "react";
 
-const Btn = (props) => {
-  return <button onClick={props.onClick}>{props.value}</button>;
-};
+const Btn = React.forwardRef(({ value, onClick, onKeyDown }, ref) => {
+  return (
+    <button onClick={onClick} onKeyDown={onKeyDown} ref={ref}>
+      {value}
+    </button>
+  );
+});
 
 export default Btn;

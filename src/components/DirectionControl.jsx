@@ -13,7 +13,8 @@ const Container = styled.div`
 const DirectionBtn = styled.img`
   border: 1px solid black;
   margin: 0 5%;
-  &.upBtn, &.downBtn {
+  &.upBtn,
+  &.downBtn {
     margin-left: 20%;
   }
 `;
@@ -22,12 +23,23 @@ const DirectionControl = () => {
   return (
     <Fragment>
       <Container>
-        <DirectionBtn className="upBtn" src={process.env.PUBLIC_URL + '/fDirection.png'} alt="fDirection" />
+        <DirectionBtn
+          className="upBtn"
+          src={process.env.PUBLIC_URL + "/forward.png"}
+          alt="forward"
+        />
         <div style={{ display: "flex" }}>
-          <DirectionBtn src={process.env.PUBLIC_URL + '/lDirection.png'} alt="lDirection" />
-          <DirectionBtn src={process.env.PUBLIC_URL + '/rDirection.png'} alt="rDirection" />
+          <DirectionBtn src={process.env.PUBLIC_URL + "/left.png"} alt="left" />
+          <DirectionBtn
+            src={process.env.PUBLIC_URL + "/right.png"}
+            alt="right"
+          />
         </div>
-        <DirectionBtn className="downBtn" src={process.env.PUBLIC_URL + '/bdirection.png'} alt="bDirection" />
+        <DirectionBtn
+          className="downBtn"
+          src={process.env.PUBLIC_URL + "/back.png"}
+          alt="back"
+        />
       </Container>
     </Fragment>
   );
