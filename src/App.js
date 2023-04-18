@@ -13,27 +13,41 @@ const App = () => {
   useEffect(() => {
     // 키 입력 처리
     const handleKeyDown = (e) => {
-      if (e.key === "t") {
-        console.log("takeoff");
-        socket.emit("takeoff");
-      } else if (e.key === "l") {
-        console.log("land");
-        socket.emit("land");
-      } else if (e.key === "w") {
-        console.log("forward");
-        socket.emit("forward");
-      } else if (e.key === "s") {
-        console.log("back");
-        socket.emit("back");
-      } else if (e.key === "a") {
-        console.log("left");
-        socket.emit("left");
-      } else if (e.key === "d") {
-        console.log("right");
-        socket.emit("right");
-      } else if (e.key === " ") {
-        console.log("stop");
-        socket.emit("stop");
+      switch (e.key) {
+        case "t":
+          console.log("takeoff");
+          socket.emit("takeoff");
+          break;
+        case "l":
+          console.log("land");
+          socket.emit("land");
+          break;
+        case "w":
+          console.log("forward");
+          socket.emit("forward");
+          break;
+        case "s":
+          console.log("back");
+          socket.emit("back");
+          break;
+        case "a":
+          console.log("left");
+          socket.emit("left");
+          break;
+        case "d":
+          console.log("right");
+          socket.emit("right");
+          break;
+        case " ":
+          console.log("stop");
+          socket.emit("stop");
+          break;
+        case "b":
+          console.log("battery?");
+          socket.emit("battery?");
+          break;
+        default:
+          break;
       }
     };
 
@@ -47,7 +61,7 @@ const App = () => {
   return (
     <div id="container">
       <div id="left">
-        <DroneCamera style={{ border: "solid yellow" }} />
+        <DroneCamera />
         <Destination />
       </div>
       <div id="right">

@@ -6,14 +6,21 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 25%;
+  margin: 120px;
 `;
 
 const MovingBtn = styled.img`
   opacity: 1;
   &:active {
     opacity: 0.5;
+  }
+
+  margin: 0 5%;
+  &.upBtn,
+  &.downBtn {
+    margin-left: 40%;
   }
 `;
 
@@ -45,6 +52,7 @@ const ThrottleControl = () => {
       <Container>
         <MovingBtn
           id="forward"
+          className="upBtn"
           onClick={() => handleDirectionClick("forward")}
           isPressed={currentDirection === "forward"}
           src={process.env.PUBLIC_URL + "/forward.png"}
@@ -68,6 +76,7 @@ const ThrottleControl = () => {
         </div>
         <MovingBtn
           id="back"
+          className="downBtn"
           onClick={() => handleDirectionClick("back")}
           isPressed={currentDirection === "back"}
           src={process.env.PUBLIC_URL + "/back.png"}
