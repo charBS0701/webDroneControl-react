@@ -24,25 +24,6 @@ const ThrottleControl = () => {
     setCurrentDirection(direction);
   };
 
-  const handleKeyDown = (event) => {
-    switch (event.key) {
-      case "w":
-        setCurrentDirection("forward");
-        break;
-      case "a":
-        setCurrentDirection("left");
-        break;
-      case "d":
-        setCurrentDirection("right");
-        break;
-      case "s":
-        setCurrentDirection("back");
-        break;
-      default:
-        break;
-    }
-  };
-
   useEffect(() => {
     if (currentDirection === "forward") {
       console.log("Drone moves forward");
@@ -61,10 +42,9 @@ const ThrottleControl = () => {
 
   return (
     <Fragment>
-      <Container tabIndex="0">
+      <Container>
         <MovingBtn
           id="forward"
-          onKeyDown={handleKeyDown}
           onClick={() => handleDirectionClick("forward")}
           isPressed={currentDirection === "forward"}
           src={process.env.PUBLIC_URL + "/forward.png"}
@@ -73,7 +53,6 @@ const ThrottleControl = () => {
         <div style={{ display: "flex" }}>
           <MovingBtn
             id="left"
-            onKeyDown={handleKeyDown}
             onClick={() => handleDirectionClick("left")}
             isPressed={currentDirection === "left"}
             src={process.env.PUBLIC_URL + "/left.png"}
@@ -81,7 +60,6 @@ const ThrottleControl = () => {
           />
           <MovingBtn
             id="right"
-            onKeyDown={handleKeyDown}
             onClick={() => handleDirectionClick("right")}
             isPressed={currentDirection === "right"}
             src={process.env.PUBLIC_URL + "/right.png"}
@@ -90,7 +68,6 @@ const ThrottleControl = () => {
         </div>
         <MovingBtn
           id="back"
-          onKeyDown={handleKeyDown}
           onClick={() => handleDirectionClick("back")}
           isPressed={currentDirection === "back"}
           src={process.env.PUBLIC_URL + "/back.png"}
