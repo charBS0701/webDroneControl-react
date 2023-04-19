@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Fragment, useState, useEffect } from "react";
+import socket from "../socket";
 
 const Container = styled.div`
   display: flex;
@@ -18,43 +19,25 @@ const MovingBtn = styled.img`
   }
 
   margin: 0 5%;
-  &.upBtn,
+  &.forwardBtn,
   &.downBtn {
     margin-left: 40%;
   }
 `;
 
 const ThrottleControl = () => {
-  const [currentDirection, setCurrentDirection] = useState("");
-
   const handleDirectionClick = (direction) => {
-    setCurrentDirection(direction);
+    console.log(`Drone moves ${direction}`);
+    socket.emit(direction);
   };
-
-  useEffect(() => {
-    if (currentDirection === "forward") {
-      console.log("Drone moves forward");
-      // 코드 작성: 드론 앞으로 움직이기
-    } else if (currentDirection === "left") {
-      console.log("Drone moves left");
-      // 코드 작성: 드론 왼쪽으로 움직이기
-    } else if (currentDirection === "right") {
-      console.log("Drone moves right");
-      // 코드 작성: 드론 오른쪽으로 움직이기
-    } else if (currentDirection === "back") {
-      console.log("Drone moves back");
-      // 코드 작성: 드론 뒤로 움직이기
-    }
-  }, [currentDirection]);
 
   return (
     <Fragment>
       <Container>
         <MovingBtn
           id="forward"
-          className="upBtn"
+          className="forwardBtn"
           onClick={() => handleDirectionClick("forward")}
-          isPressed={currentDirection === "forward"}
           src={process.env.PUBLIC_URL + "/forward.png"}
           alt="forward"
         />
@@ -62,14 +45,12 @@ const ThrottleControl = () => {
           <MovingBtn
             id="left"
             onClick={() => handleDirectionClick("left")}
-            isPressed={currentDirection === "left"}
             src={process.env.PUBLIC_URL + "/left.png"}
             alt="left"
           />
           <MovingBtn
             id="right"
             onClick={() => handleDirectionClick("right")}
-            isPressed={currentDirection === "right"}
             src={process.env.PUBLIC_URL + "/right.png"}
             alt="right"
           />
@@ -78,7 +59,6 @@ const ThrottleControl = () => {
           id="back"
           className="downBtn"
           onClick={() => handleDirectionClick("back")}
-          isPressed={currentDirection === "back"}
           src={process.env.PUBLIC_URL + "/back.png"}
           alt="back"
         />
