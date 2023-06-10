@@ -3,12 +3,11 @@ import styled from "styled-components";
 import socket from "../socket";
 
 const Container = styled.div`
-  margin: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // border: 1px solid black;
+  border: 1px solid black;
   width: 25%;
 `;
 

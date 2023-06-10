@@ -6,26 +6,26 @@ import Destination from "./components/Destination";
 import TakeoffBtn from "./components/TakeoffBtn";
 import LandingBtn from "./components/LandBtn";
 import ScreenshotBtn from "./components/ScreenshotBtn";
-import "./style.css";
 import socket from "./socket";
 import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  width: 100%; // 수정
-  height: 100%; // 수정
 `;
 
 const LeftSide = styled.div`
-  flex: 3;
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  // border: 1px solid black;
 `;
 
 const RightSide = styled.div`
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  // border: 1px solid black;
 `;
 
 const App = () => {
@@ -159,25 +159,38 @@ const App = () => {
   }, []);
 
   return (
-    <div id="container">
-      <Container>
-        <LeftSide>
-          <DroneCamera />
-          <Destination />
-        </LeftSide>
-        <RightSide>
-          <div id="controllers">
-            <DirectionControl />
-            <ThrottleControl />
-          </div>
-          <div id="buttons">
-            <TakeoffBtn />
-            <LandingBtn />
-            <ScreenshotBtn />
-          </div>
-        </RightSide>
-      </Container>
-    </div>
+    <Container>
+      <LeftSide>
+        <DroneCamera />
+        <Destination />
+      </LeftSide>
+      <RightSide>
+        <div
+          id="controllers"
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            marginBottom: "10%",
+          }}
+        >
+          <DirectionControl />
+          <ThrottleControl />
+        </div>
+        <div
+          id="buttons"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            // border: "solid",
+            alignItems: "center",
+          }}
+        >
+          <TakeoffBtn />
+          <LandingBtn />
+          <ScreenshotBtn />
+        </div>
+      </RightSide>
+    </Container>
   );
 };
 
