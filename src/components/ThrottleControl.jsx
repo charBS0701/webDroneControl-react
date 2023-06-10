@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 25%;
 `;
 
@@ -15,12 +15,6 @@ const MovingBtn = styled.img`
   opacity: 1;
   &:active {
     opacity: 0.5;
-  }
-
-  margin: 0 5%;
-  &.forwardBtn,
-  &.downBtn {
-    margin-left: 40%;
   }
   // 마우스올라가면 투명도 50%
   &:hover {
@@ -49,6 +43,12 @@ const ThrottleControl = () => {
             onClick={() => handleDirectionClick("left")}
             src={process.env.PUBLIC_URL + "/left.png"}
             alt="left"
+          />
+          <MovingBtn
+            id="blank"
+            src={process.env.PUBLIC_URL + "/right.png"}
+            alt="blank"
+            style={{ opacity: 0 }}
           />
           <MovingBtn
             id="right"

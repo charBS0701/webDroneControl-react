@@ -7,17 +7,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 25%;
 `;
 
 const DirectionBtn = styled.img`
   // border: 1px solid black;
-  margin: 0 5%;
-  &.upBtn,
-  &.downBtn {
-    margin-left: 27%;
-  }
   // 마우스올라가면 투명도 50%
   &:hover {
     opacity: 0.5;
@@ -45,6 +40,12 @@ const DirectionControl = () => {
             onClick={() => handleDirectionControl("ccw")}
             src={process.env.PUBLIC_URL + "/left.png"}
             alt="ccw"
+          />
+          <DirectionBtn
+            id="blank"
+            src={process.env.PUBLIC_URL + "/right.png"}
+            alt="blank"
+            style={{ opacity: 0 }}
           />
           <DirectionBtn
             id="cw"

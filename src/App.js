@@ -11,6 +11,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  padding-top: 3%;
 `;
 
 const LeftSide = styled.div`
@@ -25,6 +26,7 @@ const RightSide = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 3%;
   // border: 1px solid black;
 `;
 

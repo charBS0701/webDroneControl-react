@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const BtnComponent = styled.button`
-  width: 100px;
+  width: 50%;
   height: 50px;
+  font-size: 1.1rem;
   border: 1px solid black;
   border-radius: 10px;
   margin: 10px;
@@ -16,6 +17,7 @@ const BtnComponent = styled.button`
     box-shadow: none;
     transform: translateY(4px);
   }
+  background-color: #91ccec;
 `;
 
 const Btn = React.forwardRef(({ value, onClick, onKeyDown }, ref) => {
