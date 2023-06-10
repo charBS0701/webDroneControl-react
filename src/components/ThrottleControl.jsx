@@ -23,6 +23,10 @@ const MovingBtn = styled.img`
   &.downBtn {
     margin-left: 40%;
   }
+  // 마우스올라가면 투명도 50%
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const ThrottleControl = () => {
@@ -36,7 +40,6 @@ const ThrottleControl = () => {
       <Container>
         <MovingBtn
           id="forward"
-          className="forwardBtn"
           onClick={() => handleDirectionClick("forward")}
           src={process.env.PUBLIC_URL + "/forward.png"}
           alt="forward"
@@ -57,7 +60,6 @@ const ThrottleControl = () => {
         </div>
         <MovingBtn
           id="back"
-          className="downBtn"
           onClick={() => handleDirectionClick("back")}
           src={process.env.PUBLIC_URL + "/back.png"}
           alt="back"

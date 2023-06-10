@@ -1,3 +1,5 @@
+import { videoSocket } from "../socket";
+
 const DroneCamera = () => {
   return (
     <div

@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
+import socket from "../socket";
 
 const Container = styled.div`
   margin: 70px;
@@ -18,28 +19,46 @@ const DirectionBtn = styled.img`
   &.downBtn {
     margin-left: 27%;
   }
+  // 마우스올라가면 투명도 50%
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const DirectionControl = () => {
+  const handleDirectionControl = (direction) => {
+    console.log(`Drone moves ${direction}`);
+    socket.emit(direction);
+  };
+
   return (
     <Fragment>
       <Container>
         <DirectionBtn
-          className="upBtn"
+          id="up"
+          onClick={() => handleDirectionControl("up")}
           src={process.env.PUBLIC_URL + "/forward.png"}
-          alt="forward"
+          alt="up"
         />
         <div style={{ display: "flex" }}>
-          <DirectionBtn src={process.env.PUBLIC_URL + "/left.png"} alt="left" />
           <DirectionBtn
+            id="ccw"
+            onClick={() => handleDirectionControl("ccw")}
+            src={process.env.PUBLIC_URL + "/left.png"}
+            alt="ccw"
+          />
+          <DirectionBtn
+            id="cw"
+            onClick={() => handleDirectionControl("cw")}
             src={process.env.PUBLIC_URL + "/right.png"}
-            alt="right"
+            alt="cw"
           />
         </div>
         <DirectionBtn
-          className="downBtn"
+          id="down"
+          onClick={() => handleDirectionControl("down")}
           src={process.env.PUBLIC_URL + "/back.png"}
-          alt="back"
+          alt="down"
         />
       </Container>
     </Fragment>
