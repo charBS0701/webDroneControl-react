@@ -11,7 +11,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  padding-top: 3%;
+  padding-top: 2%;
 `;
 
 const LeftSide = styled.div`
@@ -164,7 +164,6 @@ const App = () => {
     <Container>
       <LeftSide>
         <DroneCamera />
-        <Destination />
       </LeftSide>
       <RightSide>
         <div
@@ -172,7 +171,7 @@ const App = () => {
           style={{
             display: "flex",
             justifyContent: "space-evenly",
-            marginBottom: "10%",
+            marginBottom: "5%",
           }}
         >
           <DirectionControl />
@@ -190,6 +189,7 @@ const App = () => {
           <TakeoffBtn />
           <LandingBtn />
           <ScreenshotBtn />
+          <Destination style={{ marginTop: "15%" }} />
         </div>
       </RightSide>
     </Container>
