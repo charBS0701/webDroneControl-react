@@ -43,69 +43,73 @@ const App = () => {
 
     // 키 입력 처리
     const handleKeyDown = (e) => {
-      switch (e.key) {
-        case "t":
-          console.log("takeoff");
-          socket.emit("takeoff");
-          break;
-        case "l":
-          console.log("land");
-          socket.emit("land");
-          break;
-        case "w":
-          console.log("forward");
-          forwardBtn.style.opacity = 0.5;
-          socket.emit("forward");
-          break;
-        case "s":
-          console.log("back");
-          socket.emit("back");
-          backBtn.style.opacity = 0.5;
-          break;
-        case "a":
-          console.log("left");
-          socket.emit("left");
-          leftBtn.style.opacity = 0.5;
-          break;
-        case "d":
-          console.log("right");
-          socket.emit("right");
-          rightBtn.style.opacity = 0.5;
-          break;
-        case " ":
-          console.log("stop");
-          socket.emit("stop");
-          break;
-        case "b":
-          console.log("battery?");
-          socket.emit("battery?");
-          break;
-        case "ArrowUp":
-          console.log("up");
-          socket.emit("up");
-          upBtn.style.opacity = 0.5;
-          break;
-        case "ArrowDown":
-          console.log("down");
-          socket.emit("down");
-          downBtn.style.opacity = 0.5;
-          break;
-        case "ArrowLeft":
-          console.log("ccw");
-          socket.emit("ccw");
-          ccwBtn.style.opacity = 0.5;
-          break;
-        case "ArrowRight":
-          console.log("cw");
-          socket.emit("cw");
-          cwBtn.style.opacity = 0.5;
-          break;
+      if (!isPressed) {
+        isPressed = true;
+        switch (e.key) {
+          case "t":
+            console.log("takeoff");
+            socket.emit("takeoff");
+            break;
+          case "l":
+            console.log("land");
+            socket.emit("land");
+            break;
+          case "w":
+            console.log("forward");
+            forwardBtn.style.opacity = 0.5;
+            socket.emit("forward");
+            break;
+          case "s":
+            console.log("back");
+            socket.emit("back");
+            backBtn.style.opacity = 0.5;
+            break;
+          case "a":
+            console.log("left");
+            socket.emit("left");
+            leftBtn.style.opacity = 0.5;
+            break;
+          case "d":
+            console.log("right");
+            socket.emit("right");
+            rightBtn.style.opacity = 0.5;
+            break;
+          case " ":
+            console.log("stop");
+            socket.emit("stop");
+            break;
+          case "b":
+            console.log("battery?");
+            socket.emit("battery?");
+            break;
+          case "ArrowUp":
+            console.log("up");
+            socket.emit("up");
+            upBtn.style.opacity = 0.5;
+            break;
+          case "ArrowDown":
+            console.log("down");
+            socket.emit("down");
+            downBtn.style.opacity = 0.5;
+            break;
+          case "ArrowLeft":
+            console.log("ccw");
+            socket.emit("ccw");
+            ccwBtn.style.opacity = 0.5;
+            break;
+          case "ArrowRight":
+            console.log("cw");
+            socket.emit("cw");
+            cwBtn.style.opacity = 0.5;
+            break;
 
-        default:
-          break;
+          default:
+            break;
+        }
       }
     };
     const handleKeyUp = (e) => {
+      isPressed = false;
       switch (e.key) {
         case "w":
           console.log("forward stop");
@@ -152,8 +156,11 @@ const App = () => {
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    let isPressed = false; // 전역 변수
+    document.addEventListener("keydown", handleKeyDown);
+    // window.addEventListener("keydown", handleKeyDown, { once: true });
+    document.addEventListener("keyup", handleKeyUp);
+    // window.addEventListener("keyup", handleKeyUp, { once: true });
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
